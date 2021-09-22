@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs Gallery with tailwindCSS and AlpineJS</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-gray-900">
+    <header class="flex justify-center text-white p-10">
+        <h1 class="text-center">Gallery [tabs and modal] with <strong>tailwindCSS</strong> and <em>AlpineJS</em></h1>
+    </header>
+
+    <section class="flex justify-center items-center min-h-screen">
+        <div class="bg-black min-h-full w-full max-w-lg p-4 rounded-xl" x-data="{tab: 'tab1'}">
+            <ul class="flex justify-center sm:justify-end p-4 uppercase text-gray-500">
+                <li><a href="#" class="inline-block px-4 py-1 mr-5 "
+                        :class="{'border-indigo-800 border-b-2 animate-pulse text-indigo-400' : tab === 'tab1'}"
+                        @click.prevent="tab = 'tab1'">Nature</a>
+                </li>
+                <li><a href="#" class="inline-block px-4 py-1 mr-5 "
+                        :class=" {'border-indigo-800 border-b-2 animate-pulse text-indigo-400' : tab==='tab2' }"
+                        @click.prevent="tab = 'tab2'">City</a>
+                </li>
+                <li><a href="#" class="inline-block px-4 py-1 mr-5 "
+                        :class=" {'border-indigo-800 border-b-2 animate-pulse text-indigo-400' : tab==='tab3' }"
+                        @click.prevent="tab = 'tab3'">Sport</a>
+                </li>
+            </ul>
+
+            <div class="" x-data>
+                <div class="bg-yellow-50 grid sm:grid-cols-2 sm:grid-rows-2 gap-2 py-2 px-2" x-show="tab === 'tab1'"
+                    x-transition:enter="">
+
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?nature,water'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src=" https://source.unsplash.com/1600x900/?nature,water" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?nature,fire'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src=" https://source.unsplash.com/1600x900/?nature,fire" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?nature,rock'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none "
+                        src=" https://source.unsplash.com/1600x900/?nature,rock" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?nature,sand'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none "
+                        src=" https://source.unsplash.com/1600x900/?nature,sand" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?nature,wood'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none "
+                        src=" https://source.unsplash.com/1600x900/?nature,wood" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?nature,sky'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none "
+                        src=" https://source.unsplash.com/1600x900/?nature,sky" alt="Random picture.">
+                </div>
+
+                <div class="bg-yellow-50 grid sm:grid-cols-2 sm:grid-rows-2 gap-2 py-2 px-2" x-show="tab === 'tab2'"
+                    x-transition:enter="">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?city,water'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?city,water" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?city,fire'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?city,fire" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?city,rock'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?city,rock" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?city,sand'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?city,sand" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?city,wood'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?city,wood" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?city,sky'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?city,sky" alt="Random picture.">
+                </div>
+
+                <div class="bg-yellow-50 grid sm:grid-cols-2 sm:grid-rows-2 gap-2 py-2 px-2" x-show="tab === 'tab3'"
+                    x-transition:enter="">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?sport,water'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?sport,water" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?sport,fire'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?sport,fire" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?sport,rock'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?sport,rock" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?sport,sand'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?sport,sand" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?sport,wood'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?sport,wood" alt="Random picture.">
+                    <img @click="$dispatch('img-modal', {  imgModalSrc: 'https://source.unsplash.com/1600x900/?sport,sky'})"
+                        class="cursor-pointer sm:filter md:blur-sm transition-all hover:blur-none"
+                        src="https://source.unsplash.com/1600x900/?sport,sky" alt="Random picture.">
+                </div>
+
+            </div>
+            <!-- modal & overlay window -->
+            <div x-data="{ openModal : false, imgModalSrc : ''}">
+                <template @img-modal.window="openModal = true; imgModalSrc = $event.detail.imgModalSrc;"
+                    x-if="openModal">
+                    <div x-show="openModal" class="fixed inset-0 bg-gray-900 z-50 flex items-center justify-center">
+                        <button @click="openModal = ''" class="absolute right-4 top-4 text-white  opacity-100"><svg
+                                class="w-14 h-14" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button>
+                        <img :alt="imgModalSrc" class="object-auto w-full h-1/2 sm:h-4/5 sm:w-4/5 sm:object-contain"
+                            :src="imgModalSrc">
+                    </div>
+
+                </template>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
